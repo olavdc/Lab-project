@@ -37,14 +37,19 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 ├── preprocessing         # Preprocessing code
 │   └── patch_extraction  # Code to extract patches from WSI
 ```
+## Pannuke dataset pre_processing
+
+
 ## Training
 
-## Training from scratch
-
-
+### Training from scratch
 To replicate the results presented in our report from scratch, you will first need to download the weights of the classical SAM encoder wieghts (i.e. SAM-ViT-B) and the MedSAM encoder weights (i.e. MedSAM-ViT-B) , which you can find at this[link](https://drive.google.com/drive/folders/1HKZUDm1SZejdVYZKlbb8ufsACjfx8Pcd?usp=drive_link)
 
-Pour lancer l'entrainement de CellVit avec SAM-ViT-B, nous vous invitons, une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), a éffectuer la ligne  de commande suivantes:
+Pour lancer l'entrainement de CellVit avec SAM-ViT-B, nous vous invitons, en premier lieu à 
+
+
+
+une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), a éffectuer la ligne  de commande suivantes:
 
 ``` usage: run_cellvit.py [-h] --config CONFIG [--gpu GPU] [--sweep | --agent AGENT | --checkpoint CHECKPOINT]
 
