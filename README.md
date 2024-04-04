@@ -10,6 +10,7 @@ Both experiments are made on the [PanNuke](https://warwick.ac.uk/fac/cross_fac/t
 ## Installation
 
 Clone the repository: ``` git clone https://github.com/olavdc/Lab-project.git ```
+
 Pip install the requirements : ``` pip install -r requirements. txt ```
 
 ## Usage
