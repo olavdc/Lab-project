@@ -107,7 +107,7 @@ To replicate the results presented in our report from scratch, you will first ne
 
 Pour lancer l'entrainement de CellVit avec SAM-ViT-B, nous vous invitons, en premier lieu à définir le fichier config.yaml suivant:
 
-'''
+```
 logging:
   mode: online
   project: Cell-Segmentation
@@ -258,8 +258,8 @@ dataset_config:
     Connective: 3
     Dead: 4
     Epithelial: 5
+```
 
-'''
 
 
 
