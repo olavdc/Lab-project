@@ -16,7 +16,6 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 ## Usage
 
 ### Project structure
-
 ```
 ├── base_ml               # Basic Machine Learning Code: CLI, Trainer, Experiment, ...
 ├── cell_segmentation     # Cell Segmentation training and inference files
@@ -38,6 +37,13 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 ├── preprocessing         # Preprocessing code
 │   └── patch_extraction  # Code to extract patches from WSI
 ```
+## Training on the Pannuke dataset
+
+## Checkpoints to download 
+
+## Dataset preparation
+
+## 
 
 
 
