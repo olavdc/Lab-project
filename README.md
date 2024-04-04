@@ -96,16 +96,19 @@ en un dataset du format suivant qui est plus adéquat au multithreading and l'ap
 Afin de convertir les données dans le bon format, nous vous invitions à run les commandes suivantes depuis le dossier (~/CellViT/cell_segmentation/dataset) : 
 
 ```
-python prepare_pannuke.py --input_path (original Pannuke dataset path) --output_path (processed Pannuke dataset path)
-```
+python prepare_pannuke.py --input_path INPUT_PATHv--output_path OUPUT_PATH
 
+required named arguments:
+--input_path INPUT_PATH original Pannuke dataset path
+--output_path OUPUT_PATH processed Pannuke dataset path
+```
 ### Training
 
 #### Training from scratch
 
 To replicate the results presented in our report from scratch, you will first need to download the weights of the classical SAM encoder wieghts (i.e. SAM-ViT-B) and the MedSAM encoder weights (i.e. MedSAM-ViT-B) , which you can find at this [link](https://drive.google.com/drive/folders/1HKZUDm1SZejdVYZKlbb8ufsACjfx8Pcd?usp=drive_link)
 
-Définir quels poids de l'encodeur (i.e. SAM-ViT-B ou MedSAM-ViT-B ) utiliser lors de l'entrainement de CellVit se fera lors de l'écriture d'un fichier config.yalm dans lequel il faudra indiquer les poids de l'encodeur souhaités pour l'entrainement. Le fichier de configuration devra avoir la forme suivante, et c'est sous la soousection pretrained_encoder de la section model qu'il faut définir quels poids d'encodeur utiliser
+Définir quels poids de l'encodeur (i.e. SAM-ViT-B ou MedSAM-ViT-B ) utiliser lors de l'entrainement de CellVit se fera lors de l'écriture d'un fichier config.yalm dans lequel il faudra indiquer les poids de l'encodeur souhaités pour l'entrainement. Le fichier de configuration devra avoir la forme suivante, et c'est sous la sous-ection pretrained_encoder de la section model qu'il faut définir quels poids d'encodeur utiliser:
 
 ```
 logging:
@@ -262,26 +265,11 @@ dataset_config:
     Epithelial: 5
 ```
 
-une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), a éffectuer la ligne  de commande suivantes:
+Une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), a éffectuer la ligne  de commande suivantes:
 
-``` usage: run_cellvit.py [-h] --config CONFIG [--gpu GPU] [--sweep | --agent AGENT | --checkpoint CHECKPOINT]
-
-Start an experiment with given configuration file.
-
+``` python run_cellvit.py --config GONIF [--gpu GPU] 
 optional arguments:
-  -h, --help            show this help message and exit
   --gpu GPU             Cuda-GPU ID (default: None)
-  --sweep               Starting a sweep. For this the configuration file must be structured according to WandB sweeping. Compare
-                        https://docs.wandb.ai/guides/sweeps and https://community.wandb.ai/t/nested-sweep-configuration/3369/3 for further
-                        information. This parameter cannot be set in the config file! (default: False)
-  --agent AGENT         Add a new agent to the sweep. Please pass the sweep ID as argument in the way entity/project/sweep_id, e.g.,
-                        user1/test_project/v4hwbijh. The agent configuration can be found in the WandB dashboard for the running sweep in
-                        the sweep overview tab under launch agent. Just paste the entity/project/sweep_id given there. The provided config
-                        file must be a sweep config file.This parameter cannot be set in the config file! (default: None)
-  --checkpoint CHECKPOINT
-                        Path to a PyTorch checkpoint file. The file is loaded and continued to train with the provided settings. If this is
-                        passed, no sweeps are possible. This parameter cannot be set in the config file! (default: None)
-
 required named arguments:
   --config CONFIG       Path to a config file (default: None)
 ```
