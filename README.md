@@ -105,15 +105,15 @@ python prepare_pannuke.py --input_path (original Pannuke dataset path) --output_
 
 To replicate the results presented in our report from scratch, you will first need to download the weights of the classical SAM encoder wieghts (i.e. SAM-ViT-B) and the MedSAM encoder weights (i.e. MedSAM-ViT-B) , which you can find at this [link](https://drive.google.com/drive/folders/1HKZUDm1SZejdVYZKlbb8ufsACjfx8Pcd?usp=drive_link)
 
-Pour lancer l'entrainement de CellVit avec SAM-ViT-B, nous vous invitons, en premier lieu à définir le fichier config.yaml suivant:
+Définir quels poids de l'encodeur (i.e. SAM-ViT-B ou MedSAM-ViT-B ) utiliser lors de l'entrainement de CellVit se fera lors de l'écriture d'un fichier config.yalm dans lequel il faudra indiquer les poids de l'encodeur souhaités pour l'entrainement. Le fichier de configuration devra avoir la forme suivante, et c'est sous la soousection pretrained_encoder de la section model qu'il faut définir quels poids d'encodeur utiliser
 
 ```
 logging:
   mode: online
   project: Cell-Segmentation
   notes: CellViT-SAM-H
-  log_dir: /home/olavdc/CellViT/cell_segmentation/experiments/
-  log_comment: CellViT-SAM-H-Fold-1
+  log_dir: ~/CellViT/cell_segmentation/experiments/ # Directory where you want the logs to be saved
+  log_comment: CellViT-SAM-B
   tags:
   - Fold-1
   - SAM-H
@@ -124,7 +124,7 @@ random_seed: 19
 gpu: 0
 data:
   dataset: PanNuke
-  dataset_path: /home/olavdc/CellViT/configs/datasets/PanNuke
+  dataset_path: ~/CellViT/configs/datasets/PanNuke # Direcotry where we can find the preprocessed Pannuke dataset
   train_folds:
   - 0
   val_folds:
@@ -135,7 +135,9 @@ data:
   num_tissue_classes: 19
 model:
   backbone: SAM-B
-  pretrained_encoder: /home/olavdc/CellViT/medsam_vit_b.pth
+  pretrained_encoder: ~/CellViT/SAM_ViT_B.pth # Here we precise which encoder weights we want to use:
+                                                                            (i) if you want the classical SAM encoder weights: use SAM_ViT_B.pth
+                                                                            (ii) if you want to use the MedSAM encoder wiehts: use MEDSAM_ViT_B.pth
   shared_skip_connections: true
 loss:
   nuclei_binary_map:
@@ -173,7 +175,7 @@ training:
   attn_drop_rate: 0.1
   drop_path_rate: 0.1
   batch_size: 8
-  epochs: 40
+  epochs: 40 # To change if you have the necessary hardware 
   optimizer: AdamW
   early_stopping_patience: 130
   scheduler:
@@ -259,9 +261,6 @@ dataset_config:
     Dead: 4
     Epithelial: 5
 ```
-
-
-
 
 une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), a éffectuer la ligne  de commande suivantes:
 
