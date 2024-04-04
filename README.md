@@ -283,31 +283,8 @@ python run_cellvit.py --config GONIF [--gpu GPU] --checkpoint CHECKPOINT
 
 optional arguments:
 --gpu GPU    Cuda-GPU ID (default: None)
---checkpoint CHECKPOINT    path to where tou stored the checkpoints
+--checkpoint CHECKPOINT    Path to where tou stored the checkpoints
 required named arguments:
 --config CONFIG    Path to a config file (default: None)
 ```
-## Checkpoints to download 
-
-Checkpoints for [medsam_vit_b](
-Checkpoints for SAM_vit_b
-
-
-### Training on the Pannuke dataset
-
-
-
-
-## Checkpoints to download 
-
-## Dataset preparation
-
-## 
-
-
-
-
-
-
-
 
