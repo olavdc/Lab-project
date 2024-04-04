@@ -7,4 +7,10 @@ Specifically, our contribution is two-fold:
 
 Both experiments are made on the [PanNuke](https://warwick.ac.uk/fac/cross_fac/tia/data/pannuke) dataset, a challenging nuclei instance segmentation benchmark.
 
+## Installation
+
+Clone the repository: ``` git clone https://github.com/olavdc/Lab-project.git ```
+
+
+
 
