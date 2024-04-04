@@ -265,7 +265,7 @@ dataset_config:
     Epithelial: 5
 ```
 
-Une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), a éffectuer la ligne  de commande suivantes:
+Ensuite, une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), éffectuez la ligne  de commande suivantes:
 
 ``` python run_cellvit.py --config GONIF [--gpu GPU] 
 
@@ -273,6 +273,19 @@ optional arguments:
   --gpu GPU             Cuda-GPU ID (default: None)
 required named arguments:
   --config CONFIG       Path to a config file (default: None)
+```
+#### Training from a checkpoint
+
+Afin de continuer l'entrainement depuis checkpoint déjà entrainé, il sera tout d'abord nécessaire de télécharger le checkpoint d'entrainement en fonction de de l'expérience que vous menez. Dans le cas d'une expériementation avec l'encodeur SAM classique, téléchargez le poids checkpoint_epoch_40_SAM_ViT_B.pth et si vous expérimentez avec l'encoderu MedSAM, téléchargez le poids checkpoint_epoch_40_MEDSAM_ViT_B.pth depuis ce [lien](https://drive.google.com/drive/folders/1PfB0x-tqec5cAI74xydi3znBO0Eve1TI?usp=sharing). Vérifiez-bien que vous indiquez les encoder weights adéquats dans votre fichier config.yaml et exéctuez la commande suivante depuis le dossier (~/CellViT/cell_segmentation):
+
+``` python run_cellvit.py --config GONIF [--gpu GPU] --checkpoint CHECKPOINT
+
+optional arguments:
+--gpu GPU            Cuda-GPU ID (default: None)
+--checkpoint         path to where tou stored the checkpoints
+required named arguments:
+--config CONFIG       Path to a config file (default: None)
+--config CONFIG       Path to a config file (default: None)
 ```
 
 ## Checkpoints to download 
