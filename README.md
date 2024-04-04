@@ -268,6 +268,7 @@ dataset_config:
 Une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), a éffectuer la ligne  de commande suivantes:
 
 ``` python run_cellvit.py --config GONIF [--gpu GPU] 
+
 optional arguments:
   --gpu GPU             Cuda-GPU ID (default: None)
 required named arguments:
