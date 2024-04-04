@@ -37,7 +37,7 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 ├── preprocessing         # Preprocessing code
 │   └── patch_extraction  # Code to extract patches from WSI
 ```
-## Pannuke dataset prepration
+### Pannuke dataset prepration
 To preprocess the pannuke dataset in order to have the right input for the model, il faut convertir le Pannuke dataset qui orginellement est dans le format suivant:
 
 ```
@@ -93,11 +93,11 @@ en un dataset du format suivant qui est plus adéquat au multithreading and l'ap
 └── weight_config.yaml      # config file for our sampling
 ```
 
-Afin de convertir les données dans le bon format, nous vous invitions à run les commandes suivantes depuis le dossier :
+Afin de convertir les données dans le bon format, nous vous invitions à run les commandes suivantes depuis le dossier (~/CellViT/cell_segmentation/dataset) : 
 
-``` 
-
-
+```
+python prepare_pannuke.py --input_path (original Pannuke dataset path) --output_path (processed Pannuke dataset path)
+```
 
 ## Training
 
