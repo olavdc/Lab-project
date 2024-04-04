@@ -38,7 +38,8 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 │   └── patch_extraction  # Code to extract patches from WSI
 ```
 ### Pannuke dataset prepration
-To preprocess the pannuke dataset in order to have the right input for the model, il faut convertir le Pannuke dataset qui orginellement est dans le format suivant:
+
+To preprocess the Pannuke dataset in order to have the right input for the model, it is necessary to convert the Pannuke dataset which is originally in the following format:
 
 ```
 ├── fold0
@@ -54,7 +55,7 @@ To preprocess the pannuke dataset in order to have the right input for the model
     ├── masks.npy
     └── types.npy
 ```
-en un dataset du format suivant qui est plus adéquat au multithreading and l'application de data augmentation:
+into a dataset in the following format which is more suitable for multithreading and the application of data augmentation:
 
 ```
 ├── fold0
@@ -93,7 +94,7 @@ en un dataset du format suivant qui est plus adéquat au multithreading and l'ap
 └── weight_config.yaml      # config file for our sampling
 ```
 
-Afin de convertir les données dans le bon format, nous vous invitions à run les commandes suivantes depuis le dossier (~/CellViT/cell_segmentation/dataset) : 
+In order to convert the data into the correct format, we invite you to run the following commands from the directory (~/CellViT/cell_segmentation/dataset):: 
 
 ```
 python prepare_pannuke.py --input_path INPUT_PATHv--output_path OUPUT_PATH
@@ -108,7 +109,7 @@ required named arguments:
 
 To replicate the results presented in our report from scratch, you will first need to download the weights of the classical SAM encoder wieghts (i.e. SAM-ViT-B) and the MedSAM encoder weights (i.e. MedSAM-ViT-B) , which you can find at this [link](https://drive.google.com/drive/folders/1HKZUDm1SZejdVYZKlbb8ufsACjfx8Pcd?usp=drive_link)
 
-Définir quels poids de l'encodeur (i.e. SAM-ViT-B ou MedSAM-ViT-B ) utiliser lors de l'entrainement de CellVit se fera lors de l'écriture d'un fichier config.yalm dans lequel il faudra indiquer les poids de l'encodeur souhaités pour l'entrainement. Le fichier de configuration devra avoir la forme suivante, et c'est sous la sous-ection pretrained_encoder de la section model qu'il faut définir quels poids d'encodeur utiliser:
+Defining which encoder weights (i.e., SAM-ViT-B or MedSAM-ViT-B) to use during the training of CellVit will be done by writing a config.yaml file, in which you will need to specify the desired encoder weights for training. The configuration file should have the following format, and it is under the "pretrained_encoder" subsection of the "model" section where you should define which encoder weights to use:
 
 ```
 logging:
@@ -265,9 +266,10 @@ dataset_config:
     Epithelial: 5
 ```
 
-Ensuite, une fois que vous vous trouvez dans le dossier (~/CellViT/cell_segmentation), éffectuez la ligne  de commande suivantes:
+Then, once you are in the directory (~/CellViT/cell_segmentation), execute the following command line:
 
-``` python run_cellvit.py --config GONIF [--gpu GPU] 
+```
+python run_cellvit.py --config GONIF [--gpu GPU] 
 
 optional arguments:
   --gpu GPU             Cuda-GPU ID (default: None)
@@ -276,16 +278,16 @@ required named arguments:
 ```
 #### Training from a checkpoint
 
-Afin de continuer l'entrainement depuis checkpoint déjà entrainé, il sera tout d'abord nécessaire de télécharger le checkpoint d'entrainement en fonction de de l'expérience que vous menez. Dans le cas d'une expériementation avec l'encodeur SAM classique, téléchargez le poids checkpoint_epoch_40_SAM_ViT_B.pth et si vous expérimentez avec l'encoderu MedSAM, téléchargez le poids checkpoint_epoch_40_MEDSAM_ViT_B.pth depuis ce [lien](https://drive.google.com/drive/folders/1PfB0x-tqec5cAI74xydi3znBO0Eve1TI?usp=sharing). Vérifiez-bien que vous indiquez les encoder weights adéquats dans votre fichier config.yaml et exéctuez la commande suivante depuis le dossier (~/CellViT/cell_segmentation):
+To continue training from a previously trained checkpoint, it will first be necessary to download the training checkpoint according to the experiment you are conducting. In the case of experimenting with the classic SAM encoder, download the weight checkpoint_epoch_40_SAM_ViT_B.pth, and if you are experimenting with the MedSAM encoder, download the weight checkpoint_epoch_40_MEDSAM_ViT_B.pth from this [link](https://drive.google.com/drive/folders/1PfB0x-tqec5cAI74xydi3znBO0Eve1TI?usp=sharing). Make sure you specify the appropriate encoder weights in your config.yaml file and execute the following command from the directory (~/CellViT/cell_segmentation):
 
-``` python run_cellvit.py --config GONIF [--gpu GPU] --checkpoint CHECKPOINT
+```
+python run_cellvit.py --config GONIF [--gpu GPU] --checkpoint CHECKPOINT
 
 optional arguments:
---gpu GPU            Cuda-GPU ID (default: None)
---checkpoint         path to where tou stored the checkpoints
+--gpu GPU                    Cuda-GPU ID (default: None)
+--checkpoint CHECKPOINT      path to where tou stored the checkpoints
 required named arguments:
---config CONFIG       Path to a config file (default: None)
---config CONFIG       Path to a config file (default: None)
+--config CONFIG              Path to a config file (default: None)
 ```
 
 ## Checkpoints to download 
