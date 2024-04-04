@@ -43,7 +43,7 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 ## Training
 
 ### Training from scratch
-To replicate the results presented in our report from scratch, you will first need to download the weights of the classical SAM encoder wieghts (i.e. SAM-ViT-B) and the MedSAM encoder weights (i.e. MedSAM-ViT-B) , which you can find at this[link](https://drive.google.com/drive/folders/1HKZUDm1SZejdVYZKlbb8ufsACjfx8Pcd?usp=drive_link)
+To replicate the results presented in our report from scratch, you will first need to download the weights of the classical SAM encoder wieghts (i.e. SAM-ViT-B) and the MedSAM encoder weights (i.e. MedSAM-ViT-B) , which you can find at this [link](https://drive.google.com/drive/folders/1HKZUDm1SZejdVYZKlbb8ufsACjfx8Pcd?usp=drive_link)
 
 Pour lancer l'entrainement de CellVit avec SAM-ViT-B, nous vous invitons, en premier lieu à 
 
