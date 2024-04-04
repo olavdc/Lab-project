@@ -16,7 +16,7 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 
 ### Project structure
 
-'''
+```
 ├── base_ml               # Basic Machine Learning Code: CLI, Trainer, Experiment, ...
 ├── cell_segmentation     # Cell Segmentation training and inference files
 │   ├── datasets          # Datasets (PyTorch)
@@ -36,7 +36,7 @@ Pip install the requirements : ``` pip install -r requirements. txt ```
 │   └── segmentation      # CellViT Code
 ├── preprocessing         # Preprocessing code
 │   └── patch_extraction  # Code to extract patches from WSI
-'''
+```
 
 
 
