@@ -265,16 +265,14 @@ dataset_config:
     Dead: 4
     Epithelial: 5
 ```
-
 Then, once you are in the directory (~/CellViT/cell_segmentation), execute the following command line:
-
 ```
 python run_cellvit.py --config GONIF [--gpu GPU] 
 
 optional arguments:
-  --gpu GPU             Cuda-GPU ID (default: None)
+  --gpu GPU    Cuda-GPU ID (default: None)
 required named arguments:
-  --config CONFIG       Path to a config file (default: None)
+  --config CONFIG    Path to a config file (default: None)
 ```
 #### Training from a checkpoint
 
@@ -284,12 +282,11 @@ To continue training from a previously trained checkpoint, it will first be nece
 python run_cellvit.py --config GONIF [--gpu GPU] --checkpoint CHECKPOINT
 
 optional arguments:
---gpu GPU                    Cuda-GPU ID (default: None)
---checkpoint CHECKPOINT      path to where tou stored the checkpoints
+--gpu GPU    Cuda-GPU ID (default: None)
+--checkpoint CHECKPOINT    path to where tou stored the checkpoints
 required named arguments:
---config CONFIG              Path to a config file (default: None)
+--config CONFIG    Path to a config file (default: None)
 ```
-
 ## Checkpoints to download 
 
 Checkpoints for [medsam_vit_b](
